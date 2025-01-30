@@ -1,30 +1,52 @@
+import java.util.Scanner;
+
 
 public class HelloGoodbye {
     public static void main(String[] args) {
-        // Display initial greeting message
-        System.out.println("Hello and welcome to the program!");
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
 
-        // Ask for the user's name
-        String name = System.console().readLine("What is your name? ");
+        // Continue the conversation as long as the user says "yes"
+        String continueResponse;
+        do {
+            // Ask a series of questions
+            System.out.println("Hello and welcome to the program!");
 
-        // Check if the user entered a name or canceled the input
-        if (name != null && !name.trim().isEmpty()) {
-            // Personalized greeting message
-            System.out.println("Hello, " + name + "! It's nice to meet you.");
-        } else {
-            // Handle case where no name was entered
-            System.out.println("Hello! It's nice to meet you.");
-        }
+            // Ask for the user's name
+            System.out.print("What is your name? ");
+            String name = scanner.nextLine();  // Read name input
 
-        // Ask if the user wants to continue
-        String response = System.console().readLine("Would you like to continue? (yes/no) ");
+            // Respond based on the name
+            if (name != null && !name.trim().isEmpty()) {
+                System.out.println("Hello, " + name + "! It's nice to meet you.");
+            } else {
+                System.out.println("Hello! It's nice to meet you.");
+            }
 
-        // If the user chooses YES, say goodbye
-        if ("yes".equalsIgnoreCase(response)) {
-            System.out.println("Thank you for using the program. Goodbye!");
-        } else {
-            // If the user chooses NO, say goodbye
-            System.out.println("Goodbye! Hope to see you again!");
-        }
+            // Ask the user for their age
+            System.out.print("How old are you? ");
+            int age = scanner.nextInt();  // Read age as an integer
+
+            // Respond based on the user's age
+            if (age >= 18) {
+                System.out.println("You are an adult.");
+            } else {
+                System.out.println("You are a minor.");
+            }
+
+            // Ask if the user wants to continue
+            scanner.nextLine();  // Clear the buffer before the next question
+            System.out.print("Would you like to continue? (yes/no) ");
+            continueResponse = scanner.nextLine();
+
+            if ("yes".equalsIgnoreCase(continueResponse)) {
+                System.out.println("Great! Let's keep talking.");
+            } else {
+                System.out.println("Goodbye! Hope to see you again!");
+            }
+
+        } while ("yes".equalsIgnoreCase(continueResponse)); // Keep asking if the response is "yes"
+
+        scanner.close();  // Close the scanner object to prevent resource leak
     }
 }
