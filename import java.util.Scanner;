@@ -56,4 +56,3 @@ public class M5CW2_Mack {
         scanner.close();
     }
 }
-
