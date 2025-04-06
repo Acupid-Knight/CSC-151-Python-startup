@@ -43,7 +43,7 @@ public class M5HW2_Mack {
             double commission = salesAmount * commissionRate;
             double monthlySalary = BASE_SALARY + commission;
 
-            System.out.println("\nSales Person: Anthony Cameron");
+            System.out.println("\nSales Person: Antonio Mack Jr");
             System.out.println("Widgets Sold: " + totalSold);
             System.out.println("Widgets Returned: " + totalReturned);
             System.out.println("Net Widgets Sold: " + netSold);
